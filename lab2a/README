@@ -5,5 +5,5 @@
 +1 балл: относительный порядок строк первого файла сохраняется.
 
 Пример запуска:
-./difference -n 1a.txt 1b.txt
-./difference 2a.txt 2b.txt
+./difference.sh -n 1a.txt 1b.txt
+./difference.sh 2a.txt 2b.txt
