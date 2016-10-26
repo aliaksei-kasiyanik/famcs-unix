@@ -8,28 +8,29 @@ usage ()
   echo "Options:"
   echo "    -n, --line-number   prefix line with line number in file"
   echo "    -h, --help  	display this help and exit"
-  exit 2
 }
 
 
 if [ $# -eq 0 ]; then
     echo "ERROR: You didn't specified filenames."
     usage
+    exit 2
 fi
 
 LINE_NUM=""
 FILENAME1=""
 FILENAME2=""
 
-while [ $# -gt 0 ]
+while [ "$#" -gt 0 ]
 do
     case "$1" in
         -n | --line-number )    LINE_NUM="-n"
                                 ;;
         -h | --help )           usage
+                                exit 0
                                 ;;
-        * )                     FILENAME1=$1;
-								FILENAME2=$2;
+        * )                     FILENAME1="$1";
+								                FILENAME2="$2";
                                 break;;
     esac
     shift
@@ -38,7 +39,8 @@ done
 if [ -z $FILENAME2 ]; then
     echo "ERROR: You didn't specified filenames."
     usage
+    exit 2
 fi
 
-grep -F $LINE_NUM -x -v -f $FILENAME2 $FILENAME1
+grep -F $LINE_NUM -x -v -f "$FILENAME2" "$FILENAME1"
 
