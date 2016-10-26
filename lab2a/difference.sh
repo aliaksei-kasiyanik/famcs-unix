@@ -8,7 +8,7 @@ usage ()
   echo "Options:"
   echo "    -n, --line-number   prefix line with line number in file"
   echo "    -h, --help  	display this help and exit"
-  exit
+  exit 2
 }
 
 
@@ -27,10 +27,9 @@ do
         -n | --line-number )    LINE_NUM="-n"
                                 ;;
         -h | --help )           usage
-                                exit
                                 ;;
         * )                     FILENAME1=$1;
-				FILENAME2=$2;
+								FILENAME2=$2;
                                 break;;
     esac
     shift
