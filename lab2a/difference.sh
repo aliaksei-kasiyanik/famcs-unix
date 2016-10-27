@@ -36,7 +36,7 @@ do
     shift
 done
 
-if [ -z $FILENAME2 ]; then
+if [ -z "$FILENAME2" ]; then
     echo "ERROR: You didn't specified filenames."
     usage
     exit 2
