@@ -6,6 +6,8 @@ do
 	vertex=${line%% *}
 	ADJ_MAP[$vertex]="$adj_list"
 done < "${1:-/dev/stdin}"
+
+
 queue=()
 visited=" "
 queue+=("from")
